@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Temperature</title>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+		<script src="https://code.highcharts.com/highcharts.js"></script>
+		<script
+  src="https://code.jquery.com/jquery-3.3.1.min.js"
+  integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+  crossorigin="anonymous"></script>
+
+		
+<script>
+		
+$(function () { 
+    var myChart = Highcharts.chart('container', {
+    chart: {
+        type: 'spline'
+    },
+    title: {
+        text: 'Температура воздуха за неделю'
+    },
+    xAxis: {
+        type: 'datetime',
+        dateTimeLabelFormats: {
+            day: '%e %b'
+        },
+		title: {
+            text: 'Даты'
+        }
+    },
+    yAxis: {
+        title: {
+            text: 'Температура °С'
+        },
+    },
+    tooltip: {
+        crosshairs: true,
+		pointFormat: '{series.name}: <b>{point.y} °C</b>'
+    },
+	legend: {
+        enabled: false
+    },
+	series: [{
+        name: 'Температура',
+        data: [10, 16.4, 3, 8.5, 10.4, 8.8, 7.5],
+		pointStart: Date.UTC(2018, 10, 5),
+        pointInterval: 24 * 3600 * 1000 // one day
+    }]
+});
+});
+		
+</script>
+	</head>
+	<body>
+	<div id="container" style="width:100%; height:400px;"></div>
+		
+	</body>
+</html>
